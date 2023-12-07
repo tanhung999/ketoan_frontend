@@ -1,5 +1,5 @@
 import Container from '@mui/material/Container'
-import Header from '../../components/Header'
+import Header from '~/components/Header'
 import Content from './Content'
 
 function Home () {

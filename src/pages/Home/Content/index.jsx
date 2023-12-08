@@ -1,16 +1,22 @@
 import Box from '@mui/material/Box'
-
+import AppBar from '~/components/AppBar'
 function Content () {
   return (
-    <Box
-      sx ={{
-        backgroundColor: 'primary.main',
-        width: '100%',
-        height:(theme) => `calc(100vh - ${theme.appCustom.appBarHeight}  -  ${theme.appCustom.navBarHeight})`,
-        display: 'flex',
-        alignItems: 'center'
-      }}
-    >Section</Box>
+    <Box>
+      <AppBar />
+      <Box
+        sx ={{
+          backgroundColor: (theme) => (theme.palette.mode === 'dark' ? theme.palette.primary : '#ffff'),
+          width: '110%',
+          height:(theme) => `calc(100vh - ${theme.appCustom.appBarHeight})`,
+          display: 'flex',
+          alignItems: 'center'
+        }}
+      >
+
+      </Box>
+    </Box>
+
   )
 }
 export default Content

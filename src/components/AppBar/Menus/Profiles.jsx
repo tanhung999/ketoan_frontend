@@ -48,7 +48,7 @@ function Profiles () {
         }}
       >
         <MenuItem>
-          <Avatar sx={{ height: 28, width: 28, mr: 2 }} /> Profile
+          <Avatar sx={{ height: 30, width: 30, mr: 2 }} /> Profile
         </MenuItem>
         <MenuItem>
           <Avatar sx={{ height: 28, width: 28, mr: 2 }} /> My account

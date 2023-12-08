@@ -20,6 +20,12 @@ import AlignVerticalBottomOutlinedIcon from '@mui/icons-material/AlignVerticalBo
 import AccountBalanceWalletOutlinedIcon from '@mui/icons-material/AccountBalanceWalletOutlined'
 
 function NavBar () {
+  // const gradientStyle = {
+  //   background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)',
+  //   backgroundSize: '400% 400%',
+  //   animation: 'gradient 15s ease infinite',
+  //   height: '100vh'
+  // }
   const MENU_STYLES = {
     marginLeft: '16px',
     height: '54px',
@@ -30,18 +36,18 @@ function NavBar () {
       color: 'primary'
     },
     '&:hover': {
-      bgcolor: 'primary.50'
+      bgcolor:(theme) => (theme.palette.mode === 'light' ? '#ffff' : '#000088')
     }
   }
   const Typography_Styles = {
     fontSize: '1rem',
     fontWeight: 'bold',
-    color: 'primary'
+    color: (theme) => (theme.palette.mode === 'dark' ? '#ffff' : '#000088')
   }
   return (
     <Box sx={{
       bgcolor: 'primary.main',
-      width: '14rem !important',
+      width: '16rem !important',
       minHeight: '100vh'
     }}>
       <Box
@@ -54,10 +60,34 @@ function NavBar () {
           sx={{ width: 36, height: 36 }}
           src={AccountLogo}
         />
-        <Typography variant='span' sx={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'primary' }}>Accountant</Typography>
+        <Typography variant='span' sx={{ fontSize: '1.2rem', fontWeight: 'bold', color:  (theme) => (theme.palette.mode === 'dark' ? '#ffff' : '#000088') }}>Accountant</Typography>
       </Box>
-      <Box sx={MENU_STYLES} >
-        <Box sx={{ cursor: 'pointer', border: '1px solid #ffff', display: 'flex', alignItems: 'center', justifyContent: 'space-around', borderRadius: 15, minWidth: '10rem', height: 40 }}>
+      <Box sx={{
+        marginLeft: '16px',
+        height: '54px',
+        display: 'flex',
+        alignItems: 'center',
+        gap: 2,
+        '& .MuiSvgIcon-root': {
+          color: 'primary'
+        },
+        '&:hover': {
+          bgcolor: 'primary'
+        }
+      }} >
+        <Box sx={{ cursor: 'pointer',
+          border: '1px solid #ffff',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-around',
+          borderRadius: 15,
+          minWidth: '10rem',
+          height: 40,
+          '&:hover': {
+            bgcolor:(theme) => (theme.palette.mode === 'light' ? '#ffff' : '#000088')
+          }
+        }}
+        >
           <ControlPointIcon/>
           <Typography variant='span' sx={Typography_Styles}>Thêm Nhanh</Typography>
         </Box>
@@ -178,7 +208,7 @@ function NavBar () {
       </Box>
       <Box px={2} marginTop={2} >
         <Typography variant='span'
-          sx={{ fontSize: '0.75rem', fontWeight: 'bold', color: 'primary' }}
+          sx={{ fontSize: '0.75rem', fontWeight: 'bold', color:  (theme) => (theme.palette.mode === 'dark' ? '#ffff' : '#000088') }}
         >Copyright © Hung Ngo 2023</Typography>
       </Box>
     </Box>

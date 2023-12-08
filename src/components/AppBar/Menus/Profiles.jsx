@@ -10,6 +10,7 @@ import IconButton from '@mui/material/IconButton'
 import PersonAdd from '@mui/icons-material/PersonAdd'
 import Settings from '@mui/icons-material/Settings'
 import Logout from '@mui/icons-material/Logout'
+import avata from '~/assets/images/thui.jpg'
 
 function Profiles () {
   const [anchorEl, setAnchorEl] = useState(null)
@@ -33,8 +34,7 @@ function Profiles () {
         >
           <Avatar
             sx={{ width: 30, height: 30 }}
-            src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fshopbanphim.com%2Fhinh-anh-meme-meo%2F&psig=AOvVaw3bgbSIcp9FELJ6ioYWMmTV&ust=1702046744688000&source=images&
-                cd=vfe&ved=0CBEQjRxqFwoTCMiEk6_I_YIDFQAAAAAdAAAAABAE"
+            src={avata}
           />
         </IconButton>
       </Tooltip>

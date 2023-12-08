@@ -30,6 +30,23 @@ const theme = extendTheme({
         }
       }
     },
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          '*::-webkit-scrollbar': {
+            width: 8,
+            height: 8
+          },
+          '*::-webkit-scrollbar-thumb': {
+            backgroundColor: '#bdc3c7',
+            borderRadius: '8px'
+          },
+          '*::-webkit-scrollbar-thumb:hover': {
+            backgroundColor: '#00b894'
+          }
+        }
+      }
+    },
     MuiInputLabel: {
       styleOverrides: {
         root: ({ theme }) => ({

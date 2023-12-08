@@ -1,10 +1,14 @@
-import Home from './pages/Home'
+
+import AppBar from '~/components/AppBar'
+import NavBar from '~/components/NavBar'
+import Box from '@mui/material/Box'
 
 function App() {
   return (
-    <>
-      <Home />
-    </>
+    <Box sx={{ display: 'flex' }}>
+      <NavBar />
+      <AppBar />
+    </Box>
   )
 }
 

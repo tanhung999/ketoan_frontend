@@ -1,5 +1,5 @@
 import Box from '@mui/material/Box'
-import AppsIcon from '@mui/icons-material/Apps'
+import MenuIcon from '@mui/icons-material/Menu'
 import ModeSelect from '../ModeSelect'
 import Typography from '@mui/material/Typography'
 import Categories from './Menus/Categories'
@@ -13,7 +13,6 @@ import Badge from '@mui/material/Badge'
 import Tooltip from '@mui/material/Tooltip'
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone'
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline'
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance'
 import AddToPhotosIcon from '@mui/icons-material/AddToPhotos'
 import InputAdornment from '@mui/material/InputAdornment'
 import IconButton from '@mui/material/IconButton'
@@ -21,8 +20,7 @@ import SearchIcon from '@mui/icons-material/Search'
 import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined'
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
 import MoreOutlinedIcon from '@mui/icons-material/MoreOutlined'
-// import { ReactComponent as AccountantIcon } from '~/assets/accounting-icon.svg'
-// import SvgIcon from '@mui/material/SvgIcon'
+
 function AppBar () {
   return (
 
@@ -37,16 +35,16 @@ function AppBar () {
           alignItems: 'center',
           justifyContent: 'space-between',
           gap: 2,
-          overflowX: 'auto'
+          overflowX: 'auto',
+          borderBottom: '2px solid #00bfa5'
         }
       }
     >
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-        <AppsIcon sx={{ color: 'primary.main' }}/>
+        <MenuIcon sx={{ color: 'primary.main' }}/>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-          <AccountBalanceIcon variant='span' sx={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'primary.main' }}/>
           {/* <SvgIcon component={AccountantIcon} inheritViewBox sx={{ color: 'primary.main' }} fontSize="small" /> */}
-          <Typography variant='span' sx={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'primary.main' }}>Accountant</Typography>
+          <Typography variant='span' sx={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'primary.main' }}>Company Hung Ngo</Typography>
         </Box>
         <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1 }}>
           <Categories />

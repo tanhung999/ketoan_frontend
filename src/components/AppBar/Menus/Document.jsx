@@ -3,11 +3,9 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
-import Divider from '@mui/material/Divider'
 import ListItemText from '@mui/material/ListItemText'
-import ListItemIcon from '@mui/material/ListItemIcon'
-import Check from '@mui/icons-material/Check'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import { Link } from 'react-router-dom'
 
 function Document () {
   const [anchorEl, setAnchorEl] = useState(null)
@@ -40,31 +38,15 @@ function Document () {
         }}
       >
         <MenuItem>
-          <ListItemText inset>Single</ListItemText>
+          <ListItemText inset><Link to='chung-tu-ghi-so'>Chung tu ghi so</Link></ListItemText>
         </MenuItem>
         <MenuItem>
-          <ListItemText inset>1.15</ListItemText>
+          <ListItemText inset><Link to='chung-tu-ket-chuyen'>Chung tu ket chuyen</Link></ListItemText>
         </MenuItem>
         <MenuItem>
-          <ListItemText inset>Double</ListItemText>
+          <ListItemText inset><Link to='chung-tu-ngan-hang'>Chung tu ngan hang</Link></ListItemText>
         </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <Check />
-          </ListItemIcon>
-          Custom: 1.2
-        </MenuItem>
-        <Divider />
-        <MenuItem>
-          <ListItemText>Add space before paragraph</ListItemText>
-        </MenuItem>
-        <MenuItem>
-          <ListItemText>Add space after paragraph</ListItemText>
-        </MenuItem>
-        <Divider />
-        <MenuItem>
-          <ListItemText>Custom spacing...</ListItemText>
-        </MenuItem>
+        
       </Menu>
     </Box>
   )

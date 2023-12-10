@@ -40,31 +40,12 @@ function GoodsIssueNote () {
         }}
       >
         <MenuItem>
-          <ListItemText inset>Single</ListItemText>
+          <ListItemText inset>Phieu xuat hang hao</ListItemText>
         </MenuItem>
         <MenuItem>
-          <ListItemText inset>1.15</ListItemText>
+          <ListItemText inset>Phieu xuat hang tra lai</ListItemText>
         </MenuItem>
-        <MenuItem>
-          <ListItemText inset>Double</ListItemText>
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <Check />
-          </ListItemIcon>
-          Custom: 1.2
-        </MenuItem>
-        <Divider />
-        <MenuItem>
-          <ListItemText>Add space before paragraph</ListItemText>
-        </MenuItem>
-        <MenuItem>
-          <ListItemText>Add space after paragraph</ListItemText>
-        </MenuItem>
-        <Divider />
-        <MenuItem>
-          <ListItemText>Custom spacing...</ListItemText>
-        </MenuItem>
+        
       </Menu>
     </Box>
   )

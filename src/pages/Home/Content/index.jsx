@@ -7,13 +7,12 @@ function Content () {
       <Box
         sx ={{
           backgroundColor: (theme) => (theme.palette.mode === 'dark' ? theme.palette.primary : '#ffff'),
-          width: '110%',
+          width: '100%',
           height:(theme) => `calc(100vh - ${theme.appCustom.appBarHeight})`,
           display: 'flex',
           alignItems: 'center'
         }}
       >
-
       </Box>
     </Box>
 

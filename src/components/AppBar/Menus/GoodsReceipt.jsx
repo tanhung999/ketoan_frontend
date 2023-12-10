@@ -40,31 +40,18 @@ function GoodsReceipt () {
         }}
       >
         <MenuItem>
-          <ListItemText inset>Single</ListItemText>
+          <ListItemText inset>Phieu nhap hang hoa</ListItemText>
         </MenuItem>
         <MenuItem>
-          <ListItemText inset>1.15</ListItemText>
+          <ListItemText inset>Phieu nhap hang tra lai</ListItemText>
         </MenuItem>
         <MenuItem>
-          <ListItemText inset>Double</ListItemText>
+          <ListItemText inset>Phieu thu</ListItemText>
         </MenuItem>
         <MenuItem>
-          <ListItemIcon>
-            <Check />
-          </ListItemIcon>
-          Custom: 1.2
+          <ListItemText inset>Phieu chi</ListItemText>
         </MenuItem>
-        <Divider />
-        <MenuItem>
-          <ListItemText>Add space before paragraph</ListItemText>
-        </MenuItem>
-        <MenuItem>
-          <ListItemText>Add space after paragraph</ListItemText>
-        </MenuItem>
-        <Divider />
-        <MenuItem>
-          <ListItemText>Custom spacing...</ListItemText>
-        </MenuItem>
+        
       </Menu>
     </Box>
   )

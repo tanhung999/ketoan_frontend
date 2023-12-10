@@ -5,13 +5,13 @@ import ChungTuGhiSo from '../ChungTuGhiSo/ChungTuGhiSo'
 import ChungTuKetChuyen from '../ChungTuKetChuyen/ChungTuKetChuyen'
 import ChungTuNganHang from '../ChungTuNganHang/ChungTuNganHang'
 import DanhMucTaiKhoan from '../DanhMucTaiKhoan/DanhMucTaiKhoan'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 function Home () {
   return (
     <Box >
       <AppBar />
       <NavBarTop />
-      <Router>
+      {/* <Router>
         <Routes>
           <Route path="/chung-tu-ghi-so" element={<ChungTuGhiSo/>} /> 
           <Route path="/chung-tu-ket-chuyen" element={<ChungTuKetChuyen/>} /> 
@@ -20,7 +20,7 @@ function Home () {
           /danh-muc-tai-khoan"
            element= {<DanhMucTaiKhoan />}/>
         </Routes>
-      </Router>
+      </Router> */}
     </Box>
   )
 }

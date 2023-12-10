@@ -8,7 +8,7 @@ import ListItemText from '@mui/material/ListItemText'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import Cloud from '@mui/icons-material/Cloud'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 function Categories () {
   const [anchorEl, setAnchorEl] = useState(null)

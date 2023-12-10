@@ -30,6 +30,7 @@ function AppBar () {
         {
           // backgroundColor: 'primary.light',
           width: '100%',
+          flex: 1,
           height: (theme) => theme.appCustom.appBarHeight,
           display: 'flex',
           alignItems: 'center',

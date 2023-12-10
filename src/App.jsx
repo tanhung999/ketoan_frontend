@@ -1,15 +1,16 @@
 
 import AppBar from '~/components/AppBar'
-import NavBar from '~/pages/NavBar'
+import NavBarTop from '~/components/NavBarTop'
 import Box from '@mui/material/Box'
-import Home from '~/pages/Home/Content'
+import Home from '~/pages/Home/'
+import ChungTuGhiSo from '~/pages/ChungTuGhiSo/ChungTuGhiSo'
+import NavBar from './pages/NavBar'
+
 
 function App() {
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'initial' }}>
+    <Box sx={{ display: 'flex'}}>
       <NavBar />
-
-      {/* <AppBar /> */}
       <Home />
 
     </Box>

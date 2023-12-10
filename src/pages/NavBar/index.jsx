@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import Box from '@mui/material/Box'
 import AppsIcon from '@mui/icons-material/Apps'
 import Avatar from '@mui/material/Avatar'
@@ -20,12 +21,11 @@ import AlignVerticalBottomOutlinedIcon from '@mui/icons-material/AlignVerticalBo
 import AccountBalanceWalletOutlinedIcon from '@mui/icons-material/AccountBalanceWalletOutlined'
 
 function NavBar () {
-  // const gradientStyle = {
-  //   background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)',
-  //   backgroundSize: '400% 400%',
-  //   animation: 'gradient 15s ease infinite',
-  //   height: '100vh'
-  // }
+  const [isActive, setIsActive] = useState(false);
+
+  const handleButtonClick = () => {
+    setIsActive(!isActive);
+  };
   const MENU_STYLES = {
     marginLeft: '16px',
     height: '54px',
@@ -54,6 +54,7 @@ function NavBar () {
         sx={{ display: 'flex', alignItems: 'center', height: '58px' }}
         px={1}
         gap={1}
+        
       >
         <AppsIcon/>
         <Avatar
@@ -87,6 +88,7 @@ function NavBar () {
             bgcolor:(theme) => (theme.palette.mode === 'light' ? '#ffff' : '#000088')
           }
         }}
+        onClick={handleButtonClick}
         >
           <ControlPointIcon/>
           <Typography variant='span' sx={Typography_Styles}>Thêm Nhanh</Typography>

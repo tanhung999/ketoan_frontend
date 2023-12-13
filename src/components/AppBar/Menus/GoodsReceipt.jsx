@@ -3,11 +3,9 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
-import Divider from '@mui/material/Divider'
 import ListItemText from '@mui/material/ListItemText'
-import ListItemIcon from '@mui/material/ListItemIcon'
-import Check from '@mui/icons-material/Check'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import { Link } from 'react-router-dom'
 
 function GoodsReceipt () {
   const [anchorEl, setAnchorEl] = useState(null)
@@ -38,20 +36,24 @@ function GoodsReceipt () {
         MenuListProps={{
           'aria-labelledby': 'basic-button-goods-receipt'
         }}
+        sx={{
+          '& .MuiListItemText-root': {
+            paddingLeft: 0
+          }
+        }}
       >
-        <MenuItem>
+        <MenuItem component={Link} to='phieu-nhap-hang-hoa'>
           <ListItemText inset>Phieu nhap hang hoa</ListItemText>
         </MenuItem>
-        <MenuItem>
+        <MenuItem component={Link} to='phieu-nhap-hang-tra-lai'>
           <ListItemText inset>Phieu nhap hang tra lai</ListItemText>
         </MenuItem>
-        <MenuItem>
+        <MenuItem component={Link} to='phieu-thu'>
           <ListItemText inset>Phieu thu</ListItemText>
         </MenuItem>
-        <MenuItem>
+        <MenuItem component={Link} to='phieu-chi'>
           <ListItemText inset>Phieu chi</ListItemText>
         </MenuItem>
-        
       </Menu>
     </Box>
   )

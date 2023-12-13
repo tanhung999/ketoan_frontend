@@ -15,6 +15,7 @@ import stableSort from '~/utils/Sort/SortTable'
 import getComparator from '~/utils/Comparator/Comparator'
 import EnhancedTableHead from '../HeaderTable/EnhancedTableHead'
 import EnhancedTableToolbar from '../HeaderTable/EnhancedTableToolbar'
+
 const rows = []
 export default function EnhancedTable() {
   const [order, setOrder] = React.useState('asc')
@@ -37,7 +38,7 @@ export default function EnhancedTable() {
           throw new Error('Failed to fetch data')
         }
       } catch (error) {
-        console.error('Error fetching data:', error)
+        throw new Error('Error fetching data:', error)
       }
     }
 

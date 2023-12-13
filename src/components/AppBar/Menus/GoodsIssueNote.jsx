@@ -3,11 +3,9 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
-import Divider from '@mui/material/Divider'
 import ListItemText from '@mui/material/ListItemText'
-import ListItemIcon from '@mui/material/ListItemIcon'
-import Check from '@mui/icons-material/Check'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import { Link } from 'react-router-dom'
 
 function GoodsIssueNote () {
   const [anchorEl, setAnchorEl] = useState(null)
@@ -38,14 +36,19 @@ function GoodsIssueNote () {
         MenuListProps={{
           'aria-labelledby': 'basic-button-goods-issue-note'
         }}
+        sx={{
+          '& .MuiListItemText-root': {
+            paddingLeft: 0
+          }
+        }}
       >
-        <MenuItem>
-          <ListItemText inset>Phieu xuat hang hao</ListItemText>
+
+        <MenuItem component={Link} to='/phieu-xuat-hang-hoa'>
+          <ListItemText inset>Phieu xuat hang hoa</ListItemText>
         </MenuItem>
-        <MenuItem>
+        <MenuItem component={Link} to='/phieu-xuat-hang-tra-lai'>
           <ListItemText inset>Phieu xuat hang tra lai</ListItemText>
         </MenuItem>
-        
       </Menu>
     </Box>
   )

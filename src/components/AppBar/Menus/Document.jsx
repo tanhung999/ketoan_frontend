@@ -5,7 +5,7 @@ import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import ListItemText from '@mui/material/ListItemText'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function Document () {
   const [anchorEl, setAnchorEl] = useState(null)
@@ -36,16 +36,26 @@ function Document () {
         MenuListProps={{
           'aria-labelledby': 'basic-button-document'
         }}
+        sx={{
+          '& .MuiListItemText-root': {
+            paddingLeft: 0
+          }
+        }}
       >
-        {/* <MenuItem>
-          <ListItemText inset><Link to='chung-tu-ghi-so'>Chung tu ghi so</Link></ListItemText>
+        <MenuItem component={Link} to='/chung-tu-ghi-so'>
+          <ListItemText inset >Chung tu ghi so</ListItemText>
         </MenuItem>
-        <MenuItem>
-          <ListItemText inset><Link to='chung-tu-ket-chuyen'>Chung tu ket chuyen</Link></ListItemText>
+
+
+        <MenuItem component={Link} to='/chung-tu-ket-chuyen'>
+          <ListItemText inset>Chung tu ket chuyen</ListItemText>
         </MenuItem>
-        <MenuItem>
-          <ListItemText inset><Link to='chung-tu-ngan-hang'>Chung tu ngan hang</Link></ListItemText>
-        </MenuItem> */}
+
+
+        <MenuItem component={Link} to='/chung-tu-ngan-hang'>
+          <ListItemText inset>Chung tu ngan hang</ListItemText>
+        </MenuItem>
+
       </Menu>
     </Box>
   )

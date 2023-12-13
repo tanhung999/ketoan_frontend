@@ -4,23 +4,21 @@ import NavBarTop from '~/components/NavBarTop'
 import ChungTuGhiSo from '../ChungTuGhiSo/ChungTuGhiSo'
 import ChungTuKetChuyen from '../ChungTuKetChuyen/ChungTuKetChuyen'
 import ChungTuNganHang from '../ChungTuNganHang/ChungTuNganHang'
-import DanhMucTaiKhoan from '../DanhMucTaiKhoan/DanhMucTaiKhoan'
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import PhieuNhapHangHoa from '../PhieuNhapHangHoa/PhieuNhapHangHoa'
+import PhieuNhapHangTraLai from '../PhieuNhapHangTraLai/PhieuNhapHangTraLai'
+import { Route, Routes } from 'react-router-dom'
 function Home () {
   return (
     <Box >
       <AppBar />
       <NavBarTop />
-      {/* <Router>
-        <Routes>
-          <Route path="/chung-tu-ghi-so" element={<ChungTuGhiSo/>} /> 
-          <Route path="/chung-tu-ket-chuyen" element={<ChungTuKetChuyen/>} /> 
-          <Route path="/chung-tu-ngan-hang" element={<ChungTuNganHang/>} /> 
-          <Route path="
-          /danh-muc-tai-khoan"
-           element= {<DanhMucTaiKhoan />}/>
-        </Routes>
-      </Router> */}
+      <Routes>
+        <Route path='/chung-tu-ghi-so' element={<ChungTuGhiSo />}/>
+        <Route path='/chung-tu-ket-chuyen' element={<ChungTuKetChuyen />}/>
+        <Route path='/chung-tu-ngan-hang' element={<ChungTuNganHang/>}/>
+        <Route path='/phieu-nhap-hang-hoa' element={<PhieuNhapHangHoa/>}/>
+        <Route path='/phieu-nhap-hang-tra-lai' element={<PhieuNhapHangTraLai/>}/>
+      </Routes>
     </Box>
   )
 }

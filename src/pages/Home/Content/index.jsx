@@ -1,9 +1,7 @@
 import Box from '@mui/material/Box'
-import AppBar from '~/components/AppBar'
 function Content () {
   return (
     <Box>
-      <AppBar />
       <Box
         sx ={{
           backgroundColor: (theme) => (theme.palette.mode === 'dark' ? theme.palette.primary : '#ffff'),

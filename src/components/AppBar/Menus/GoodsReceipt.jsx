@@ -3,7 +3,6 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
-import ListItemText from '@mui/material/ListItemText'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { Link } from 'react-router-dom'
 
@@ -42,17 +41,17 @@ function GoodsReceipt () {
           }
         }}
       >
-        <MenuItem component={Link} to='phieu-nhap-hang-hoa'>
-          <ListItemText inset>Phieu nhap hang hoa</ListItemText>
+        <MenuItem onClick={handleClose} component={Link} to='phieu-nhap-hang-hoa'>
+         Phieu nhap hang hoa
         </MenuItem>
-        <MenuItem component={Link} to='phieu-nhap-hang-tra-lai'>
-          <ListItemText inset>Phieu nhap hang tra lai</ListItemText>
+        <MenuItem onClick={handleClose} component={Link} to='phieu-nhap-hang-tra-lai'>
+         Phieu nhap hang tra lai
         </MenuItem>
-        <MenuItem component={Link} to='phieu-thu'>
-          <ListItemText inset>Phieu thu</ListItemText>
+        <MenuItem onClick={handleClose} component={Link} to='phieu-thu'>
+         Phieu thu
         </MenuItem>
-        <MenuItem component={Link} to='phieu-chi'>
-          <ListItemText inset>Phieu chi</ListItemText>
+        <MenuItem onClick={handleClose} component={Link} to='phieu-chi'>
+         Phieu chi
         </MenuItem>
       </Menu>
     </Box>

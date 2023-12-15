@@ -3,6 +3,7 @@ import Avatar from '@mui/material/Avatar'
 import AccountLogo from '~/assets/images/logo_accountant.jpg'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
+import { Link } from 'react-router-dom'
 
 function HeaderNavBar () {
   return (
@@ -10,6 +11,8 @@ function HeaderNavBar () {
       sx={{ display: 'flex', alignItems: 'center', height: '58px' }}
       px={1}
       gap={1}
+      component={Link}
+      to='/'
     >
       <AppsIcon/>
       <Avatar

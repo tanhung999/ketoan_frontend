@@ -1,7 +1,7 @@
 
 import Box from '@mui/material/Box'
 import Home from '~/pages/Home/'
-import NavBar from './components/NavBar'
+import NavBar from './components/NavBar/Menu'
 
 
 function App() {

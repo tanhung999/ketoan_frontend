@@ -19,6 +19,7 @@ import ButtonAddFast from './Menus/ButtonAddFast'
 import LineSpace from './LineSpace/LineSpace'
 import ButtonMenuCommand from './Menus/ButtonMenuCommand'
 import FooterNavBar from './FooterNavBar/FooterNavBar'
+
 function NavBar () {
   const MENU_STYLES = {
     marginLeft: '16px',

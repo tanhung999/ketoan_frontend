@@ -8,6 +8,7 @@ import Select from '@mui/material/Select'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined'
 import SettingsBrightnessIcon from '@mui/icons-material/SettingsBrightness'
+import { memo } from 'react'
 
 function ModeSelect () {
   const { mode, setMode } = useColorScheme()
@@ -47,4 +48,4 @@ function ModeSelect () {
     </FormControl>
   )
 }
-export default ModeSelect
+export default memo(ModeSelect)

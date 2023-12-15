@@ -20,6 +20,7 @@ import SearchIcon from '@mui/icons-material/Search'
 import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined'
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
 import MoreOutlinedIcon from '@mui/icons-material/MoreOutlined'
+import { memo } from 'react'
 
 function AppBar () {
   return (
@@ -104,4 +105,4 @@ function AppBar () {
 
   )
 }
-export default AppBar
+export default memo ( AppBar )

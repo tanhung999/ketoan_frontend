@@ -9,6 +9,11 @@ import PhieuNhapHangTraLai from '../PhieuNhapHangTraLai/PhieuNhapHangTraLai'
 import DanhMucTaiKhoan from '../DanhMucTaiKhoan/DanhMucTaiKhoan'
 import DanhMucTaiKhoanCongNo from '../DanhMucTaiKhoanCongNoKhachHang/DanhMucTaiKhoanCongNo'
 import DanhMucHangHoa from '../DanhMucHangHoa/DanhMucHangHoa'
+import PhieuChi from '../PhieuChi/PhieuChi'
+import PhieuThu from '../PhieuThu/PhieuThu'
+import PhieuXuatHangHoa from '../PhieuXuatHangHoa/PhieuXuatHangHoa'
+import PhieuXuatHangTraLai from '../PhieuXuatHangHoaTraLai/PhieuXuatHangHoaTraLai'
+
 import { Route, Routes } from 'react-router-dom'
 import Content from './Content'
 function Home () {
@@ -26,6 +31,10 @@ function Home () {
         <Route path='/chung-tu-ngan-hang' element={<ChungTuNganHang/>}/>
         <Route path='/phieu-nhap-hang-hoa' element={<PhieuNhapHangHoa/>}/>
         <Route path='/phieu-nhap-hang-tra-lai' element={<PhieuNhapHangTraLai/>}/>
+        <Route path='/phieu-chi' element={<PhieuChi />}/>
+        <Route path='/phieu-thu' element={<PhieuThu />}/>
+        <Route path='/phieu-xuat-hang-hoa' element={<PhieuXuatHangHoa/>}/>
+        <Route path='/phieu-xuat-hang-tra-lai' element={<PhieuXuatHangTraLai/>}/>
       </Routes>
     </Box>
   )

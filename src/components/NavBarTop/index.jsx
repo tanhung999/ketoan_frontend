@@ -11,6 +11,7 @@ import IconButton from '@mui/material/IconButton'
 import SearchIcon from '@mui/icons-material/Search'
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined'
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
+import { memo } from 'react'
 
 function NavBarTop () {
   const [age, setAge] = React.useState('')
@@ -163,4 +164,4 @@ function NavBarTop () {
 
   )
 }
-export default NavBarTop
+export default memo(NavBarTop)

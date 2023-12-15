@@ -3,7 +3,6 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
-import ListItemText from '@mui/material/ListItemText'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { Link } from 'react-router-dom'
 
@@ -43,11 +42,11 @@ function GoodsIssueNote () {
         }}
       >
 
-        <MenuItem component={Link} to='/phieu-xuat-hang-hoa'>
-          <ListItemText inset>Phieu xuat hang hoa</ListItemText>
+        <MenuItem onClick={handleClose} component={Link} to='/phieu-xuat-hang-hoa'>
+          Phieu xuat hang hoa
         </MenuItem>
-        <MenuItem component={Link} to='/phieu-xuat-hang-tra-lai'>
-          <ListItemText inset>Phieu xuat hang tra lai</ListItemText>
+        <MenuItem onClick={handleClose} component={Link} to='/phieu-xuat-hang-tra-lai'>
+          Phieu xuat hang tra lai
         </MenuItem>
       </Menu>
     </Box>

@@ -14,7 +14,6 @@ import GavelOutlinedIcon from '@mui/icons-material/GavelOutlined'
 import LibraryBooksOutlinedIcon from '@mui/icons-material/LibraryBooksOutlined'
 import AlignVerticalBottomOutlinedIcon from '@mui/icons-material/AlignVerticalBottomOutlined'
 import AccountBalanceWalletOutlinedIcon from '@mui/icons-material/AccountBalanceWalletOutlined'
-
 import HeaderNavBar from './Menus/HeaderNavbar'
 import ButtonAddFast from './Menus/ButtonAddFast'
 import LineSpace from './LineSpace/LineSpace'
@@ -39,6 +38,7 @@ function NavBar () {
     fontWeight: 'bold',
     color: (theme) => (theme.palette.mode === 'dark' ? '#ffff' : '#000088')
   }
+
   return (
     <Box sx={{
       bgcolor: 'primary.main',

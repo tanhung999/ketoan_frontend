@@ -9,6 +9,7 @@ function App() {
     <Box sx={{ display: 'flex' }}>
       <NavBar />
       <Home />
+      
     </Box>
   )
 }

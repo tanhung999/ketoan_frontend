@@ -46,9 +46,15 @@ function AppBar () {
         <MenuIcon sx={{ color: 'primary.main' }}/>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           {/* <SvgIcon component={AccountantIcon} inheritViewBox sx={{ color: 'primary.main' }} fontSize="small" /> */}
-          <Typography variant='span' sx={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'primary.main' }}>Company Hung Ngo</Typography>
+          <Typography variant='span' sx={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'primary.main' }}></Typography>
         </Box>
-        <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1 }}>
+        <Box sx={{ 
+          display: { xs: 'none', md: 'flex' }, 
+          gap: 1,
+          '& .MuiBox-root': {
+            width: 130,
+          }
+        }}>
           <Categories />
           <Document />
           <GoodsReceipt />

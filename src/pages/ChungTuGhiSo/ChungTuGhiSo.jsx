@@ -11,10 +11,10 @@ function ChungTuGhiSo () {
     { field: 'cMaKhachHangNo', headerName: 'Mã KH Nợ', width: 120 },
     { field: 'cTenKhachHangNo', headerName: 'Tên KH Nợ', width: 160 },
     { field: 'cMaSoThueNo', headerName: 'MST Nợ', width: 130 },
-    { field: 'cMaKhachHangCo', headerName: 'Mã KH Có', width: 100 },
-    { field: 'cTenKhachHangCo', headerName: 'Tên KH Có', width: 160 },
-    { field: 'cMaSoThueCo', headerName: 'MST Có', width: 95 },
-    { field: 'cDienGiai', headerName: 'Diễn giải', width: 160 }
+    // { field: 'cMaKhachHangCo', headerName: 'Mã KH Có', width: 100 },
+    // { field: 'cTenKhachHangCo', headerName: 'Tên KH Có', width: 160 },
+    // { field: 'cMaSoThueCo', headerName: 'MST Có', width: 95 },
+    // { field: 'cDienGiai', headerName: 'Diễn giải', width: 160 }
     // { field: 'cBieuThue', headerName: 'Biểu thuế', width: 80 },
     // { field: 'cSoSeRi', headerName: 'Số SeRi', width: 80 },
     // { field: 'cSoHoaDon', headerName: 'Số hoá đơn', width: 100 },

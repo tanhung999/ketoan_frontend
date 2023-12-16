@@ -17,8 +17,8 @@ import PhieuXuatHangTraLai from '../PhieuXuatHangHoaTraLai/PhieuXuatHangHoaTraLa
 import { Route, Routes } from 'react-router-dom'
 import Content from './Content'
 function Home () {
-  return (
-    <Box >
+  return (  
+    <Box >  
       <AppBar />
       <NavBarTop />
       <Routes>

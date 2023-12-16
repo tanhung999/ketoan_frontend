@@ -12,9 +12,9 @@ function PhieuThu () {
     { field: 'cSoChungTuGoc', headerName: 'Số CT gốc', width: 160 },
     { field: 'cMaKhachHang', headerName: 'Mã khách hàng', width: 160 },
     { field: 'cTenKhachHang', headerName: 'Tên khách hàng', width: 130 },
-    { field: 'cMaSoThue', headerName: 'MST', width: 100 },
-    { field: 'cDienGiai', headerName: 'Diễn giải', width: 160 },
-    { field: 'cBieuThue', headerName: 'Biểu thuế', width: 95 }
+    // { field: 'cMaSoThue', headerName: 'MST', width: 100 },
+    // { field: 'cDienGiai', headerName: 'Diễn giải', width: 160 },
+    // { field: 'cBieuThue', headerName: 'Biểu thuế', width: 95 }
 
   ]
   return (

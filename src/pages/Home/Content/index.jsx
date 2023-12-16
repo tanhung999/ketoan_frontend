@@ -1,4 +1,5 @@
 import Box from '@mui/material/Box'
+import DialogDetail from '~/components/FormDetail/DialogDetail'
 function Content () {
   return (
     <Box>
@@ -11,6 +12,7 @@ function Content () {
           alignItems: 'center'
         }}
       >
+      <DialogDetail />
       </Box>
     </Box>
 

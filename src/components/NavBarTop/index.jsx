@@ -25,9 +25,7 @@ function NavBarTop () {
     }}>
       <Box
         sx ={{
-          // backgroundColor: (theme) => (theme.palette.mode === 'dark' ? theme.palette.primary : '#ffff'),
           width: '100%',
-          // height:(theme) => `calc(100vh - ${theme.appCustom.appBarHeight})`,
           height: 54,
           display: 'flex',
           alignItems: 'center',
@@ -49,9 +47,6 @@ function NavBarTop () {
             <MenuItem value="">
                     Thuc hien hang loai
             </MenuItem>
-            {/* <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem> */}
           </Select>
         </FormControl>
         <FormControl sx={{ m: 0.5, minWidth: 120, '& .MuiSelect-select': {
@@ -128,9 +123,6 @@ function NavBarTop () {
             <MenuItem value="">
                         Tien ich
             </MenuItem>
-            {/* <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem> */}
           </Select>
         </FormControl>
         <FormControl sx={{ m: 0.5, minWidth: 120, '& .MuiSelect-select': {

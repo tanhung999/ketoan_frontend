@@ -1,4 +1,5 @@
 import DataGridTable from '~/components/Table/DataGridTable'
+import labels from '~/utils/ConstantLabels/ConstPhieuChi/ConstPhieuChi'
 
 function PhieuChi () {
   const URL = 'http://localhost:3000/phieuchichitiet'
@@ -10,14 +11,15 @@ function PhieuChi () {
     { field: 'cHoTen', headerName: 'Họ tên', width: 120 },
     { field: 'cDiaChi', headerName: 'Địa chỉ', width: 120 },
     { field: 'cMaKhachHang', headerName: 'Mã khách hàng', width: 160 },
-    { field: 'cTenKhachHang', headerName: 'Tên khách hàng', width: 130 },
-    // { field: 'cMaSoThue', headerName: 'MST', width: 100 },
-    // { field: 'cDienGiai', headerName: 'Diễn giải', width: 160 },
-    // { field: 'cBieuThue', headerName: 'Biểu thuế', width: 95 },
-    // { field: 'cSoSeRi', headerName: 'Số SeRi', width: 160 }
+    { field: 'cTenKhachHang', headerName: 'Tên khách hàng', width: 130 }
   ]
   return (
-    <DataGridTable URL={URL} columns={columns} />
+    <DataGridTable
+      URL={URL}
+      columns={columns}
+      labels={labels}
+      name={'Phiếu chi'}
+    />
   )
 }
 export default PhieuChi

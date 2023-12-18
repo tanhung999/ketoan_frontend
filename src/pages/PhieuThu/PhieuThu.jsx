@@ -1,4 +1,5 @@
 import DataGridTable from '~/components/Table/DataGridTable'
+import labels from '~/utils/ConstantLabels/ConstPhieuThu/ConstPhieuThu'
 
 function PhieuThu () {
   const URL = 'http://localhost:3000/phieuthuchitiet'
@@ -11,16 +12,15 @@ function PhieuThu () {
     { field: 'cDiaChi', headerName: 'Địa chỉ', width: 120 },
     { field: 'cSoChungTuGoc', headerName: 'Số CT gốc', width: 160 },
     { field: 'cMaKhachHang', headerName: 'Mã khách hàng', width: 160 },
-    { field: 'cTenKhachHang', headerName: 'Tên khách hàng', width: 130 },
-    // { field: 'cMaSoThue', headerName: 'MST', width: 100 },
-    // { field: 'cDienGiai', headerName: 'Diễn giải', width: 160 },
-    // { field: 'cBieuThue', headerName: 'Biểu thuế', width: 95 }
+    { field: 'cTenKhachHang', headerName: 'Tên khách hàng', width: 130 }
 
   ]
   return (
     <DataGridTable
       URL={URL}
       columns={columns}
+      labels={labels}
+      name={'Phiếu thu'}
 
     />
   )

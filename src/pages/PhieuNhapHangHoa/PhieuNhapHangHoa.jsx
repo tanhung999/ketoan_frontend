@@ -1,4 +1,5 @@
 import DataGridTable from '~/components/Table/DataGridTable'
+import labels from '~/utils/ConstantLabels/ConstPhieuNhapHangHoa/ConstPhieuNhapHangHoa'
 function PhieuNhapHangHoa () {
   const URL ='http://localhost:3000/phieunhaphanghoa'
   const columns = [
@@ -19,6 +20,8 @@ function PhieuNhapHangHoa () {
     <DataGridTable
       URL={URL}
       columns={columns}
+      labels={labels}
+      name={'Phiếu nhập hàng hoá'}
     />
   )
 }

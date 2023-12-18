@@ -12,7 +12,7 @@ function Content () {
           alignItems: 'center'
         }}
       >
-      <DialogDetail />
+        <DialogDetail />
       </Box>
     </Box>
 

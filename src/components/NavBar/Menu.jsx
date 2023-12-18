@@ -5,19 +5,11 @@ import ButtonAddFast from './Menus/ButtonAddFast'
 import LineSpace from './LineSpace/LineSpace'
 import ButtonMenuCommand from './Menus/ButtonMenuCommand'
 import FooterNavBar from './FooterNavBar/FooterNavBar'
-import { ConstantMenu } from '~/utils/Constant/ConstantMenu'
+import { ConstantMenu } from '~/utils/ConstantMenu/ConstantMenu'
 import React, { useState } from 'react'
 
 
 function NavBar () {
-  // const [activeMenu, setActive] = useState(1)
-  
-
-  const handleActive = (id) => {
-    console.log(id);
-    // Add your logic here
-  }
-
   const MENU_STYLES = {
     marginLeft: '16px',
     height: '54px',
@@ -31,9 +23,7 @@ function NavBar () {
       bgcolor:(theme) => (theme.palette.mode === 'light' ? '#ffff' : '#000088')
     },
     '&.active': {
-      // Add styles for the active state
-      // For example, you can change the background color
-      bgcolor: '#000088 !important', // Replace with your desired active color
+      bgcolor: '#000088 !important'
     }
   }
   const Typography_Styles = {
@@ -41,7 +31,7 @@ function NavBar () {
     fontWeight: 'bold',
     color: (theme) => (theme.palette.mode === 'dark' ? '#ffff' : '#000088')
   }
- 
+
   return (
     <Box sx={{
       bgcolor: 'primary.main',
@@ -51,18 +41,15 @@ function NavBar () {
       <HeaderNavBar />
       <ButtonAddFast {...Typography_Styles}/>
       <LineSpace />
-      
+
       {ConstantMenu.map((item, index) => (
         <React.Fragment key={index}>
-          <ButtonMenuCommand 
-            MENU_STYLES={MENU_STYLES} 
-            ICon={item.icon} 
+          <ButtonMenuCommand
+            MENU_STYLES={MENU_STYLES}
+            ICon={item.icon}
             Typography_Styles={Typography_Styles}
             LabelButton={item.label}
-            // onClick={() => handleActive(item.id)}
-            // // Add the 'active' class if the menu is active
-            // className={activeMenu === item.id ? 'active' : ''}
-            onClick = {() => handleActive(item.id)}
+            onClick = {console.log('abc')}
           />
           <LineSpace />
         </React.Fragment>

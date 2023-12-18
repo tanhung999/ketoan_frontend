@@ -29,7 +29,6 @@ function AppBar () {
       px={2}
       sx={
         {
-          // backgroundColor: 'primary.light',
           width: '100%',
           flex: 1,
           height: (theme) => theme.appCustom.appBarHeight,
@@ -45,14 +44,13 @@ function AppBar () {
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
         <MenuIcon sx={{ color: 'primary.main' }}/>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-          {/* <SvgIcon component={AccountantIcon} inheritViewBox sx={{ color: 'primary.main' }} fontSize="small" /> */}
           <Typography variant='span' sx={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'primary.main' }}></Typography>
         </Box>
-        <Box sx={{ 
-          display: { xs: 'none', md: 'flex' }, 
+        <Box sx={{
+          display: { xs: 'none', md: 'flex' },
           gap: 1,
           '& .MuiBox-root': {
-            width: 130,
+            width: 130
           }
         }}>
           <Categories />

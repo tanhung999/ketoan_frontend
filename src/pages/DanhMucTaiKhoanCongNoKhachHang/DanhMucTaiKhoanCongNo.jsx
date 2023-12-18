@@ -13,6 +13,8 @@ function DanhMucTaiKhoanCongNo () {
     <DataGridTable
       URL={URL}
       columns={columns}
+      labels={columns}
+      name={'Danh mục tài khoản công nợ khách hàng'}
     />
   )
 }

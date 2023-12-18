@@ -13,29 +13,36 @@ import PhieuChi from '../PhieuChi/PhieuChi'
 import PhieuThu from '../PhieuThu/PhieuThu'
 import PhieuXuatHangHoa from '../PhieuXuatHangHoa/PhieuXuatHangHoa'
 import PhieuXuatHangTraLai from '../PhieuXuatHangHoaTraLai/PhieuXuatHangHoaTraLai'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import Content from './Content'
+import '~/assets/css/App.css'
 function Home () {
-  return (  
-    <Box >  
+  const location = useLocation()
+  return (
+    <Box >
       <AppBar />
       <NavBarTop />
-      <Routes>
-        <Route path='/' element={<Content/> }/>
-        <Route path='/danh-muc-tai-khoan' element={<DanhMucTaiKhoan />}/>
-        <Route path='/danh-muc-tai-khoan-cong-no-khach-hang' element={<DanhMucTaiKhoanCongNo />}/>
-        <Route path='/danh-muc-hang-hoa' element={<DanhMucHangHoa />}/>
-        <Route path='/chung-tu-ghi-so' element={<ChungTuGhiSo />}/>
-        <Route path='/chung-tu-ket-chuyen' element={<ChungTuKetChuyen />}/>
-        <Route path='/chung-tu-ngan-hang' element={<ChungTuNganHang/>}/>
-        <Route path='/phieu-nhap-hang-hoa' element={<PhieuNhapHangHoa/>}/>
-        <Route path='/phieu-nhap-hang-tra-lai' element={<PhieuNhapHangTraLai/>}/>
-        <Route path='/phieu-chi' element={<PhieuChi />}/>
-        <Route path='/phieu-thu' element={<PhieuThu />}/>
-        <Route path='/phieu-xuat-hang-hoa' element={<PhieuXuatHangHoa/>}/>
-        <Route path='/phieu-xuat-hang-tra-lai' element={<PhieuXuatHangTraLai/>}/>
-      </Routes>
+      <TransitionGroup component={null}>
+        <CSSTransition key={location.key} timeout={300} classNames="fade">
+          <Routes>
+            <Route path='/' element={<Content/> }/>
+            <Route path='/danh-muc-tai-khoan' element={<DanhMucTaiKhoan />}/>
+            <Route path='/danh-muc-tai-khoan-cong-no-khach-hang' element={<DanhMucTaiKhoanCongNo />}/>
+            <Route path='/danh-muc-hang-hoa' element={<DanhMucHangHoa />}/>
+            <Route path='/chung-tu-ghi-so' element={<ChungTuGhiSo />}/>
+            <Route path='/chung-tu-ket-chuyen' element={<ChungTuKetChuyen />}/>
+            <Route path='/chung-tu-ngan-hang' element={<ChungTuNganHang/>}/>
+            <Route path='/phieu-nhap-hang-hoa' element={<PhieuNhapHangHoa/>}/>
+            <Route path='/phieu-nhap-hang-tra-lai' element={<PhieuNhapHangTraLai/>}/>
+            <Route path='/phieu-chi' element={<PhieuChi />}/>
+            <Route path='/phieu-thu' element={<PhieuThu />}/>
+            <Route path='/phieu-xuat-hang-hoa' element={<PhieuXuatHangHoa/>}/>
+            <Route path='/phieu-xuat-hang-tra-lai' element={<PhieuXuatHangTraLai/>}/>
+          </Routes>
+        </CSSTransition>
+      </TransitionGroup>
     </Box>
   )
 }

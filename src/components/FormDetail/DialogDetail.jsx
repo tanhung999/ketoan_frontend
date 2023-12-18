@@ -1,35 +1,34 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import ListItemText from '@mui/material/ListItemText';
-import ListItem from '@mui/material/ListItem';
-import List from '@mui/material/List';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import CloseIcon from '@mui/icons-material/Close';
-import Slide from '@mui/material/Slide';
-import { labels } from './Constant/ConstChungTuGhiSo';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import useFetch from './useFetch';
+import * as React from 'react'
+import Button from '@mui/material/Button'
+import Dialog from '@mui/material/Dialog'
+import ListItemText from '@mui/material/ListItemText'
+import ListItem from '@mui/material/ListItem'
+import List from '@mui/material/List'
+import AppBar from '@mui/material/AppBar'
+import Toolbar from '@mui/material/Toolbar'
+import IconButton from '@mui/material/IconButton'
+import Typography from '@mui/material/Typography'
+import CloseIcon from '@mui/icons-material/Close'
+import Slide from '@mui/material/Slide'
+import OutlinedInput from '@mui/material/OutlinedInput'
+import useFetch from './useFetch'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
+  return <Slide direction="up" ref={ref} {...props} />
+})
 
-export default function DialogDetail({ name = 'Chi Tiet', URL, openClick }) {
-  const [open, setOpen] = React.useState(false)
+function DialogDetail({ name = 'Chi Tiet', URL, openClick, labels }) {
+  const [open, setOpen] = React.useState(openClick || false)
   const { data } = useFetch(URL)
   React.useEffect(() => {
-    setOpen(openClick);
-    
-  }, [URL]);
+    setOpen(openClick)
+    return () => {
+    }
+  }, [data])
 
   const handleClose = () => {
     setOpen(false)
-  };
-
+  }
   return (
     <React.Fragment>
       <Dialog
@@ -56,33 +55,38 @@ export default function DialogDetail({ name = 'Chi Tiet', URL, openClick }) {
             </Button>
           </Toolbar>
         </AppBar>
-        <List>
-          <form>
-            {labels.map((label, index) => (
+        <form>
+          <List sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between'
+          }}>
+            {labels?labels.map((label, index) => (
               <ListItem
                 key={index}
                 sx={{
                   display: 'flex',
-                  maxWidth: '350px',
-                  gap: 5,
-                  justifyContent: 'flex-start',
+                  maxWidth: '500px',
+                  gap: 3,
+                  flexDirection: 'row'
                 }}
               >
                 <ListItemText primary={label.headerName} />
                 <OutlinedInput
                   sx={{
                     '& .MuiInputBase-input': {
-                      padding: '4px !important',
+                      padding: '4px !important'
                     },
-                    width: 160,
+                    width: 300
                   }}
-                  value={data ? data[label.field] : ''}
+                  value={data ? data[label.field] || '' : ''}
                 />
               </ListItem>
-            ))}
-          </form>
-        </List>
+            )): ''}
+          </List>
+        </form>
       </Dialog>
     </React.Fragment>
-  );
+  )
 }
+export default DialogDetail

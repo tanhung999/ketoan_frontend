@@ -1,6 +1,6 @@
 import DataGridTable from '~/components/Table/DataGridTable'
 import labels from '~/utils/ConstantLabels/ConstChungTuKetChuyen/ConstChungTuKetChuyen'
-
+import labelsDetail from '~/utils/ConstantLabels/ConstChungTuNganHang/ConstChungTuNganHangChiTiet'
 function ChungTuNganHang () {
   const URL = 'http://localhost:3000/chungtunganhang'
   const columns = [
@@ -12,8 +12,6 @@ function ChungTuNganHang () {
     { field: 'cMaKhachHang', headerName: 'Mã khách hàng', width: 160 },
     { field: 'cTenKhachHang', headerName: 'Tên khách hàng', width: 160 },
     { field: 'cMaSoThue', headerName: 'MST', width: 160 }
-    // { field: 'cDienGiai', headerName: 'Diễn giải', width: 260 },
-    // { field: 'nThu_Chi', headerName: 'Thu chi', width: 60 }
   ]
   return (
     <DataGridTable
@@ -21,6 +19,7 @@ function ChungTuNganHang () {
       columns={columns}
       labels={labels}
       name={'Chứng từ ngân hàng'}
+      labelsDetail={labelsDetail}
     />
   )
 }

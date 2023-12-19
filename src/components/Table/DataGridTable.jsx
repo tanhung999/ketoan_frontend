@@ -4,7 +4,7 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import DialogDetail from '../FormDetail/DialogDetail'
 
-function DataGridTable ({ URL, columns, labels, name }) {
+function DataGridTable ({ URL, columns, labels, name, labelsDetail }) {
   const [rows, setRows] = React.useState([])
   const [loading, setLoading] = React.useState(true)
   const [selectedRow, setSelectedRow] = React.useState(null)
@@ -66,6 +66,7 @@ function DataGridTable ({ URL, columns, labels, name }) {
               openClick={true}
               labels={labels}
               name={name}
+              labelsDetail={labelsDetail}
             />
           )
           }

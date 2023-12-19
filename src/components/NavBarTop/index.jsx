@@ -54,16 +54,12 @@ function NavBarTop () {
         } }}>
           <Select
             value={''}
-            //onChange={handleChange}
             displayEmpty
             inputProps={{ 'aria-label': 'Without label' }}
           >
             <MenuItem value="">
                         Loc
             </MenuItem>
-            {/* <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem> */}
           </Select>
         </FormControl>
         <Box>
@@ -116,7 +112,6 @@ function NavBarTop () {
         }}>
           <Select
             value={''}
-            //onChange={handleChange}
             displayEmpty
             inputProps={{ 'aria-label': 'Without label' }}
           >
@@ -138,16 +133,12 @@ function NavBarTop () {
         }}>
           <Select
             value={''}
-            //onChange={handleChange}
             displayEmpty
             inputProps={{ 'aria-label': 'Without label' }}
           >
             <MenuItem value="">
                         Them
             </MenuItem>
-            {/* <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem> */}
           </Select>
         </FormControl>
 

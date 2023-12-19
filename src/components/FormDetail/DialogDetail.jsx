@@ -11,7 +11,9 @@ import Typography from '@mui/material/Typography'
 import CloseIcon from '@mui/icons-material/Close'
 import Slide from '@mui/material/Slide'
 import OutlinedInput from '@mui/material/OutlinedInput'
+
 import useFetch from './useFetch'
+import TableDetail from './TableDetail/TableDetail'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />
@@ -86,6 +88,7 @@ function DialogDetail({ name = 'Chi Tiet', URL, openClick, labels }) {
           </List>
         </form>
       </Dialog>
+      <TableDetail labels={labels} rows={data} />
     </React.Fragment>
   )
 }

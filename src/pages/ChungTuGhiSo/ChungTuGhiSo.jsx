@@ -1,7 +1,8 @@
 import DataGridTable from '~/components/Table/DataGridTable'
-import labels from '~/utils/ConstantLabels/ConstanChungTuGhiSo/ConstChungTuGhiSo'
-
+import labels from '~/utils/ConstantLabels/ConstantChungTuGhiSo/ConstChungTuGhiSo'
+import labelsDetail from '~/utils/ConstantLabels/ConstantChungTuGhiSo/ConstChungTuGhiSoChiTiet'
 function ChungTuGhiSo () {
+
   const URL = 'http://localhost:3000/chungtughiso'
   const columns = [
     { field: 'cMaChungTu', headerName: 'Mã chứng Từ', width: 160 },
@@ -20,6 +21,7 @@ function ChungTuGhiSo () {
       columns={columns}
       labels={labels}
       name={'Chứng Từ Ghi Sổ'}
+      labelsDetail={labelsDetail}
     />
   )
 }

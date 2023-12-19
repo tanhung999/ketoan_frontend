@@ -1,6 +1,6 @@
 import DataGridTable from '~/components/Table/DataGridTable'
 import labels from '~/utils/ConstantLabels/ConstChungTuKetChuyen/ConstChungTuKetChuyen'
-
+import labelsDetail from '~/utils/ConstantLabels/ConstChungTuKetChuyen/ConstChungTuKetChuyenChiTiet'
 function ChungTuKetChuyen() {
   const columns = [
     { field: 'cMaChungTu', headerName: 'Mã Chứng Từ', width: 160 },
@@ -16,6 +16,7 @@ function ChungTuKetChuyen() {
       columns={columns}
       labels={labels}
       name={'Chứng Từ Kết Chuyển'}
+      labelsDetail={labelsDetail}
     />
   )
 }

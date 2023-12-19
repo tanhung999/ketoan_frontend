@@ -1,6 +1,6 @@
 import DataGridTable from '~/components/Table/DataGridTable'
 import labels from '~/utils/ConstantLabels/ConstPhieuThu/ConstPhieuThu'
-
+import labelsDetail from '~/utils/ConstantLabels/ConstPhieuThu/ConstPhieuThuChiTiet'
 function PhieuThu () {
   const URL = 'http://localhost:3000/phieuthuchitiet'
   const columns = [
@@ -21,6 +21,7 @@ function PhieuThu () {
       columns={columns}
       labels={labels}
       name={'Phiếu thu'}
+      labelsDetail={labelsDetail}
 
     />
   )

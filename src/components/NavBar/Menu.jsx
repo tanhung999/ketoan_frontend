@@ -49,7 +49,7 @@ function NavBar () {
             ICon={item.icon}
             Typography_Styles={Typography_Styles}
             LabelButton={item.label}
-            onClick = {console.log('abc')}
+            onClick = {''}
           />
           <LineSpace />
         </React.Fragment>

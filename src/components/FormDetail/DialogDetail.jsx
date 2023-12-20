@@ -19,13 +19,13 @@ const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />
 })
 
-function DialogDetail({ name = 'Chi Tiet', URL, openClick, labels, labelsDetail }) {
+function DialogDetail({ name = 'Chi Tiet', URL, openClick, labels, labelsDetail,currentRowData }) {
   const [open, setOpen] = useState(openClick || false)
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [showTableDetail, setShowTableDetail] = useState(false)
-
+  const [clicked, setClicked] = useState('')
   useLayoutEffect(() => {
     const fetchData = async () => {
       try {
@@ -54,6 +54,30 @@ function DialogDetail({ name = 'Chi Tiet', URL, openClick, labels, labelsDetail 
       setShowTableDetail(false);
     }
   }, [data, labelsDetail]);
+  useLayoutEffect(() => {
+    console.log(currentRowData)
+    console.log(clicked)
+    switch (clicked) {
+      case 'next': {
+        console.log('next')
+        break
+      }
+      case 'prev': {
+        console.log(currentRowData.previous)
+        break
+      }
+      case 'first': {
+        console.log(currentRowData.first)
+        break
+      }
+      case 'last': {
+        console.log(currentRowData.last)
+        break
+      }
+      default:
+
+    }
+  },[clicked])
   const handleClose = () => {
     setOpen(false)
   }
@@ -119,7 +143,7 @@ function DialogDetail({ name = 'Chi Tiet', URL, openClick, labels, labelsDetail 
         {showTableDetail ? (
             <TableDetail labelsDetail={labelsDetail} data={data?.[labelsDetail.tableName.name]} />
         ) : (
-          <ButtonSet />
+          <ButtonSet clickedChild={setClicked}/>
         )}
       </Dialog>
     </>

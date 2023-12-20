@@ -1,4 +1,4 @@
-import { useState, forwardRef, useLayoutEffect } from 'react'
+import { useState, forwardRef, useLayoutEffect, useEffect } from 'react'
 import Button from '@mui/material/Button'
 import Dialog from '@mui/material/Dialog'
 import ListItemText from '@mui/material/ListItemText'
@@ -13,6 +13,7 @@ import Slide from '@mui/material/Slide'
 import OutlinedInput from '@mui/material/OutlinedInput'
 
 import TableDetail from './TableDetail/TableDetail'
+import ButtonSet from './ButtonSet/ButtonSet'
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />
@@ -23,6 +24,7 @@ function DialogDetail({ name = 'Chi Tiet', URL, openClick, labels, labelsDetail 
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [showTableDetail, setShowTableDetail] = useState(false)
 
   useLayoutEffect(() => {
     const fetchData = async () => {
@@ -41,7 +43,17 @@ function DialogDetail({ name = 'Chi Tiet', URL, openClick, labels, labelsDetail 
     fetchData()
     return () => {}
   }, [URL, openClick])
-
+  useEffect(() => {
+    if (
+      labelsDetail?.tableName &&
+      Array.isArray(data?.[labelsDetail.tableName.name]) &&
+      data?.[labelsDetail.tableName.name].length > 0
+    ) {
+      setShowTableDetail(true);
+    } else {
+      setShowTableDetail(false);
+    }
+  }, [data, labelsDetail]);
   const handleClose = () => {
     setOpen(false)
   }
@@ -104,8 +116,10 @@ function DialogDetail({ name = 'Chi Tiet', URL, openClick, labels, labelsDetail 
               : ''}
           </List>
         </form>
-        {labelsDetail?.tableName && Array.isArray(data?.[labelsDetail.tableName.name]) && data?.[labelsDetail.tableName.name].length > 0 && (
-          <TableDetail labelsDetail={labelsDetail} data={data?.[labelsDetail.tableName.name]} />
+        {showTableDetail ? (
+            <TableDetail labelsDetail={labelsDetail} data={data?.[labelsDetail.tableName.name]} />
+        ) : (
+          <ButtonSet />
         )}
       </Dialog>
     </>

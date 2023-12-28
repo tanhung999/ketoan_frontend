@@ -10,7 +10,7 @@ function DataGridTable ({ URL, columns, labels, name,tableName, labelsDetail }) 
   const [loading, setLoading] = React.useState(true)
   const [selectedRow, setSelectedRow] = React.useState(null)
   const [noData, setNoData] = React.useState(false)
-  
+  const [callAPI, setCallAPI]=React.useState(false)
   let currentRowData = {}
   React.useLayoutEffect(() => {
     const fetchData = async () => {
@@ -20,6 +20,7 @@ function DataGridTable ({ URL, columns, labels, name,tableName, labelsDetail }) 
         
         setRows(result);
         setNoData(result.length === 0)
+        setCallAPI(false)
       } catch (error) {
         console.error('Error fetching data:', error)
       } finally {
@@ -29,7 +30,7 @@ function DataGridTable ({ URL, columns, labels, name,tableName, labelsDetail }) 
 
     fetchData()
     return () => {}
-  }, [URL])
+  }, [URL,callAPI])
   
   const handleRowClick = (params) => {
     const maChungTu = params.id.replace(/\//g, '-')
@@ -75,6 +76,7 @@ function DataGridTable ({ URL, columns, labels, name,tableName, labelsDetail }) 
               name={name}
               tableName={tableName}
               labelsDetail={labelsDetail}
+              setCallAPI={setCallAPI}
             />
           )
           }

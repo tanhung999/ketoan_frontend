@@ -13,18 +13,22 @@ import Slide from '@mui/material/Slide'
 import Box from '@mui/material/Box'
 import Input from '@mui/material/Input'
 import TableDetail from './TableDetail/TableDetail'
+import CustomizedSnackbars from './Snackbar/Snackbar'
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />
 })
 
-function DialogDetail({ name = 'Chi Tiet',tableName, URL,openClick, labels, labelsDetail, currentRowData }) {
+function DialogDetail({ name = 'Chi Tiet',tableName, URL,openClick, labels, labelsDetail, setCallAPI }) {
   const [open, setOpen] = useState(openClick || false)
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [currentURL, setCurrentURL] = useState(URL)
   const [inputValues, setInputValues] = useState({})
   const [showTableDetail, setShowTableDetail] = useState(false)
+  const [openSnackbar, setOpenSnackbar] = useState(false)
+  const [onChange, setOnChange] = useState(false)
+  const [message, setMessage] = useState({})
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true)
@@ -55,6 +59,7 @@ function DialogDetail({ name = 'Chi Tiet',tableName, URL,openClick, labels, labe
     }
   }, [data, labelsDetail]);
   const handleInputChange = (e, labelField) => {
+    setOnChange(true)
     const value = e.target.value;
     setInputValues(prevValues => ({
       ...prevValues,
@@ -64,10 +69,8 @@ function DialogDetail({ name = 'Chi Tiet',tableName, URL,openClick, labels, labe
     }))
   }
   const hanldeUpdate = async () => {
-    const updatedChungTuGhiSo = 'update'
-    const updatedURL = URL.replace('bymachungtu', updatedChungTuGhiSo)+'?maso=1'
-    console.log(updatedURL)
-    console.log(inputValues)
+    const updated = 'update'
+    const updatedURL = URL.replace('bymachungtu', updated)+'?maso=1'
     try {
       const response = await fetch(updatedURL, {
         method: 'PATCH',
@@ -78,26 +81,28 @@ function DialogDetail({ name = 'Chi Tiet',tableName, URL,openClick, labels, labe
       });
   
       if (response) {
-        console.log('Data updated successfully');
-        // Optionally, if you want to fetch new data after updating
-        const newResponse = await fetch(URL); // Fetch the updated data again
-        const newData = await newResponse.json(); // Parse the updated data
-        setData(newData) // Update the local data with the new values
+        setOpenSnackbar(true)
+        setMessage({message:'Data update successfully!',severity: 'success'})
       } else {
-        console.error('Failed to update data');
+        setOpenSnackbar(true)
+        setMessage({message:'Data update error!',severity: 'error'})
       }
     } catch (error) {
-      console.error('Error updating data:', error);
+      setMessage({message:'Error updating data:', error,severity: 'error'})
     }
   };
   
   const handleClose = () => {
     setOpen(false)
+    setCallAPI(true)
   }
   if (loading) {
     return <p>Loading...</p>
   }
-
+  const handleSnackbarClose = () => {
+    setOnChange(false)
+    setOpenSnackbar(false)
+  }
   return (
     <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
       <AppBar sx={{ position: 'relative' }}>
@@ -121,7 +126,7 @@ function DialogDetail({ name = 'Chi Tiet',tableName, URL,openClick, labels, labe
           }}>
             
           </Box>
-          <Button autoFocus color="inherit" onClick={hanldeUpdate}>
+          <Button autoFocus color="inherit" onClick={() => onChange ? hanldeUpdate(): handleClose() }>
             SAVE
           </Button>
         </Toolbar>
@@ -145,6 +150,7 @@ function DialogDetail({ name = 'Chi Tiet',tableName, URL,openClick, labels, labe
       {showTableDetail && (
             <TableDetail labelsDetail={labelsDetail} data={data?.[labelsDetail.tableName.name]} />
         )}
+        <CustomizedSnackbars openSnackbar={openSnackbar} handleSnackbarClose={handleSnackbarClose} message={message} />
     </Dialog>
   )
 }

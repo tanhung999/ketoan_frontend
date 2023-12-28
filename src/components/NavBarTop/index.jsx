@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography'
 import TextField from '@mui/material/TextField'
 import InputAdornment from '@mui/material/InputAdornment'
 import IconButton from '@mui/material/IconButton'
+import Button from '@mui/material/Button'
 import SearchIcon from '@mui/icons-material/Search'
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined'
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
@@ -120,28 +121,15 @@ function NavBarTop () {
             </MenuItem>
           </Select>
         </FormControl>
-        <FormControl sx={{ m: 0.5, minWidth: 120, '& .MuiSelect-select': {
-          padding: 1,
-          marginLeft: 1,
-          color: '#fff',
-          fontWeight: 600
-        },
-        '& .MuiInputBase-root': {
-          borderRadius: '15px',
-          backgroundColor: 'primary.main'
-        }
-        }}>
-          <Select
-            value={''}
-            displayEmpty
-            inputProps={{ 'aria-label': 'Without label' }}
-          >
-            <MenuItem value="">
-                        Them
-            </MenuItem>
-          </Select>
-        </FormControl>
-
+        
+        <Button sx={{ 
+          m: 0.5, 
+          minWidth: 120, 
+          border: '1px solid #00bfa5', // Border của button
+          borderRadius: '15px'  
+        }}
+          >Them
+        </Button>
       </Box>
     </Box>
 

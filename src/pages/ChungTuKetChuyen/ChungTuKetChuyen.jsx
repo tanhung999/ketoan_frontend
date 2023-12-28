@@ -16,6 +16,7 @@ function ChungTuKetChuyen() {
       columns={columns}
       labels={labels}
       name={'Chứng Từ Kết Chuyển'}
+      tableName={'_tChungTuKetChuyen'}
       labelsDetail={labelsDetail}
     />
   )

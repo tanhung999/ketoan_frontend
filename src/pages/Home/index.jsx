@@ -18,6 +18,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import Content from './Content'
 import '~/assets/css/App.css'
+
 function Home () {
   const location = useLocation()
   return (

@@ -19,6 +19,7 @@ function PhieuNhapHangHoa () {
       labels={labels}
       name={'Phiếu nhập hàng hoá'}
       labelsDetail={labelsDetail}
+      tableName={'_tPhieuNhapHangHoa'}
     />
   )
 }

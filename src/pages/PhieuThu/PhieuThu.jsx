@@ -21,6 +21,7 @@ function PhieuThu () {
       columns={columns}
       labels={labels}
       name={'Phiếu thu'}
+      tableName={'_tPhieuThu'}
       labelsDetail={labelsDetail}
 
     />

@@ -20,6 +20,7 @@ function PhieuChi () {
       labels={labels}
       name={'Phiếu chi'}
       labelsDetail={labelsDetail}
+      tableName={'_tPhieuChi'}
     />
   )
 }

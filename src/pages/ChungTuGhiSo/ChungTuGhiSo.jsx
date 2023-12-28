@@ -20,7 +20,8 @@ function ChungTuGhiSo () {
       URL={URL}
       columns={columns}
       labels={labels}
-      name={'Chứng Từ Ghi Sổ'}
+      name={'Chung tu ghi so'}
+      tableName={'_tChungTuGhiSo'}
       labelsDetail={labelsDetail}
     />
   )

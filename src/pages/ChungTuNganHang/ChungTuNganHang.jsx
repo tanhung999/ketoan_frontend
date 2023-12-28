@@ -19,6 +19,7 @@ function ChungTuNganHang () {
       columns={columns}
       labels={labels}
       name={'Chứng từ ngân hàng'}
+      tableName={'_tChungTuNganHang'}
       labelsDetail={labelsDetail}
     />
   )

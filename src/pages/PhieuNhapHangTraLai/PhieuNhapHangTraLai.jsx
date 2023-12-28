@@ -18,6 +18,7 @@ function PhieuNhapHangTraLai () {
       columns={columns}
       labels={labels}
       name={'Phiếu nhập hàng trả lại'}
+      tableName={'_tPhieuNhapHangTraLai'}
       labelsDetail={labelsDetail}
     />
   )

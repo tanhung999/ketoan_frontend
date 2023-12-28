@@ -1,4 +1,4 @@
-import { useState, forwardRef, useLayoutEffect, useEffect } from 'react'
+import { useState, forwardRef, useEffect } from 'react'
 import Button from '@mui/material/Button'
 import Dialog from '@mui/material/Dialog'
 import ListItemText from '@mui/material/ListItemText'
@@ -10,30 +10,31 @@ import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
 import CloseIcon from '@mui/icons-material/Close'
 import Slide from '@mui/material/Slide'
-import OutlinedInput from '@mui/material/OutlinedInput'
-
+import Box from '@mui/material/Box'
+import Input from '@mui/material/Input'
 import TableDetail from './TableDetail/TableDetail'
-import ButtonSet from './ButtonSet/ButtonSet'
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />
 })
 
-function DialogDetail({ name = 'Chi Tiet', URL, openClick, labels, labelsDetail,currentRowData }) {
+function DialogDetail({ name = 'Chi Tiet',tableName, URL,openClick, labels, labelsDetail, currentRowData }) {
   const [open, setOpen] = useState(openClick || false)
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [currentURL, setCurrentURL] = useState(URL)
+  const [inputValues, setInputValues] = useState({})
   const [showTableDetail, setShowTableDetail] = useState(false)
-  const [clicked, setClicked] = useState('')
-  useLayoutEffect(() => {
+  useEffect(() => {
     const fetchData = async () => {
+      setLoading(true)
       try {
         const response = await fetch(URL)
         const result = await response.json()
         setData(result)
+        setCurrentURL(URL)
       } catch (error) {
-        setError(error)
+       throw new Error(error.message)
       } finally {
         setLoading(false)
         setOpen(openClick)
@@ -41,8 +42,7 @@ function DialogDetail({ name = 'Chi Tiet', URL, openClick, labels, labelsDetail,
     }
 
     fetchData()
-    return () => {}
-  }, [URL, openClick])
+  }, [URL, openClick,currentURL])
   useEffect(() => {
     if (
       labelsDetail?.tableName &&
@@ -54,99 +54,98 @@ function DialogDetail({ name = 'Chi Tiet', URL, openClick, labels, labelsDetail,
       setShowTableDetail(false);
     }
   }, [data, labelsDetail]);
-  useLayoutEffect(() => {
-    console.log(currentRowData)
-    console.log(clicked)
-    switch (clicked) {
-      case 'next': {
-        console.log('next')
-        break
+  const handleInputChange = (e, labelField) => {
+    const value = e.target.value;
+    setInputValues(prevValues => ({
+      ...prevValues,
+      [tableName]: {
+        [labelField]: value,
       }
-      case 'prev': {
-        console.log(currentRowData.previous)
-        break
+    }))
+  }
+  const hanldeUpdate = async () => {
+    const updatedChungTuGhiSo = 'update'
+    const updatedURL = URL.replace('bymachungtu', updatedChungTuGhiSo)+'?maso=1'
+    console.log(updatedURL)
+    console.log(inputValues)
+    try {
+      const response = await fetch(updatedURL, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(inputValues), // Send updated values to the server
+      });
+  
+      if (response) {
+        console.log('Data updated successfully');
+        // Optionally, if you want to fetch new data after updating
+        const newResponse = await fetch(URL); // Fetch the updated data again
+        const newData = await newResponse.json(); // Parse the updated data
+        setData(newData) // Update the local data with the new values
+      } else {
+        console.error('Failed to update data');
       }
-      case 'first': {
-        console.log(currentRowData.first)
-        break
-      }
-      case 'last': {
-        console.log(currentRowData.last)
-        break
-      }
-      default:
-
+    } catch (error) {
+      console.error('Error updating data:', error);
     }
-  },[clicked])
+  };
+  
   const handleClose = () => {
     setOpen(false)
   }
-
   if (loading) {
     return <p>Loading...</p>
   }
 
-  if (error) {
-    return <p>Error: {error.message}</p>
-  }
-
   return (
-    <>
-      <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
-        <AppBar sx={{ position: 'relative' }}>
-          <Toolbar>
-            <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
-              <CloseIcon />
-            </IconButton>
-            <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-              {name}
-            </Typography>
-            <Button autoFocus color="inherit" onClick={handleClose}>
-              save
-            </Button>
-          </Toolbar>
-        </AppBar>
-        <form>
-          <List
-            sx={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'space-between'
-            }}
-          >
-            {labels
-              ? labels.map((label, index) => (
-                <ListItem
-                  key={index}
-                  sx={{
-                    display: 'flex',
-                    maxWidth: '500px',
-                    gap: 3,
-                    flexDirection: 'row'
-                  }}
-                >
-                  <ListItemText primary={label.headerName} />
-                  <OutlinedInput
-                    sx={{
-                      '& .MuiInputBase-input': {
-                        padding: '4px !important'
-                      },
-                      width: 300
-                    }}
-                    value={data ? data[label.field] || '' : ''}
-                  />
-                </ListItem>
-              ))
-              : ''}
-          </List>
-        </form>
-        {showTableDetail ? (
+    <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
+      <AppBar sx={{ position: 'relative' }}>
+        <Toolbar>
+          <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
+            <CloseIcon />
+          </IconButton>
+          <Typography sx={{ ml: 2,  }} variant="h6" component="div">
+            {name}
+          </Typography>
+          <Box sx={{
+            display: 'flex',
+            alignItems: 'center', // Căn các biểu tượng theo chiều dọc
+            '& .MuiSvgIcon-root': {
+              fontSize: 40,
+              cursor: 'pointer',
+              marginX: 1, // Thêm khoảng cách giữa các biểu tượng theo chiều ngang
+            },
+            flex: 1, // Để giữ các biểu tượng căn giữa
+            justifyContent: 'center', 
+          }}>
+            
+          </Box>
+          <Button autoFocus color="inherit" onClick={hanldeUpdate}>
+            SAVE
+          </Button>
+        </Toolbar>
+      </AppBar>
+      <form>
+        <List sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+          {labels &&
+            labels.map((label, index) => (
+              <ListItem key={index} sx={{ display: 'flex', maxWidth: '500px', gap: 3, flexDirection: 'row' }}>
+                <ListItemText primary={label.headerName} />
+                <Input
+                  key={data ? data[label.field] : 'no-data'} 
+                  sx={{ '& .MuiInputBase-input': { padding: '4px !important' }, width: 300 }}
+                  defaultValue={data ? data[label.field] || '' : ''}
+                  onChange={(e) => handleInputChange(e, label.field)}
+                ></Input>
+              </ListItem>
+            ))}
+        </List>
+      </form>
+      {showTableDetail && (
             <TableDetail labelsDetail={labelsDetail} data={data?.[labelsDetail.tableName.name]} />
-        ) : (
-          <ButtonSet clickedChild={setClicked}/>
         )}
-      </Dialog>
-    </>
+    </Dialog>
   )
 }
 

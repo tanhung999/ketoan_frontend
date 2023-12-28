@@ -17,6 +17,7 @@ function PhieuXuatHangHoa () {
       columns={columns}
       labels={labels}
       name={'Phiếu xuất hàng hoá'}
+      tableName={'_tPhieuXuatHangHoa'}
       labelsDetail={labelsDetail}
     />
   )

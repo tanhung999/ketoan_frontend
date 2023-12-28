@@ -9,6 +9,7 @@ function DanhMucTaiKhoan () {
       columns={columns}
       labels={columns}
       name={'Danh mục tài khoản'}
+      tableName={'_tDanhMucTaiKhoan'}
     />
   )
 }

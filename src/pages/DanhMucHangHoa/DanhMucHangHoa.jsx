@@ -18,6 +18,7 @@ function DanhMucHangHoa () {
       columns={columns}
       labels={labels}
       name={'Danh mục hàng hoá'}
+      tableName={'_tDanhMucHangHoa'}
     />
   )
 }
